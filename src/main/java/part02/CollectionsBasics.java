@@ -1,5 +1,6 @@
 package part02;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -20,7 +21,15 @@ public class CollectionsBasics {
      * @return The maximum value in the list.
      */
     public int maximum(List<Integer> numbers) {
-        return 0; // TODO: implement this method
+
+        int max = numbers.get(0);
+        for (int i = 1; i < numbers.size(); i++){
+            if (numbers.get(i) > max){
+                max = numbers.get(i);
+            }
+        }
+
+        return max;
     }
 
     /**
@@ -30,7 +39,13 @@ public class CollectionsBasics {
      * @return The sum of all integers in the list.
      */
     public int sum(List<Integer> numbers) {
-        return 0; // TODO: implement this method
+
+        int sum = 0;
+        for (int i = 0; i < numbers.size(); i++){
+            sum += numbers.get(i);
+        }
+    
+        return sum; 
     }
 
     /**
@@ -47,7 +62,13 @@ public class CollectionsBasics {
      * @return A new list, where the numbers are multiplied by the given factor.
      */
     public List<Integer> multiply(List<Integer> numbers, int factor) {
-        return null; // TODO: implement this method
+
+        List<Integer> factoredNumbers = new ArrayList<>();
+
+        for (int i = 0; i < numbers.size(); i++){
+            factoredNumbers.add(numbers.get(i) * factor);
+        }
+        return factoredNumbers; 
     }
 
     /**
@@ -61,7 +82,18 @@ public class CollectionsBasics {
      * @return A list containing the numbers between the start and end values.
      */
     public List<Integer> range(int start, int end) {
-        return null; // TODO: implement this method
+
+        List<Integer> numbers = new ArrayList<>();
+
+        if (end <= start){
+            return numbers;
+        }
+
+        for (int i = start; i < end; i++){
+            numbers.add(i);
+        }
+
+        return numbers; 
     }
 
     /**
@@ -73,7 +105,15 @@ public class CollectionsBasics {
      * @return The concatenated string.
      */
     public String concatenateStrings(List<String> strings) {
-        return ""; // TODO: implement this method
+
+        String result = "";
+
+        for (int i = 0; i < strings.size(); i++){
+            result += strings.get(i);
+        }
+
+        return result; // 
+        
     }
 
     /**
@@ -85,7 +125,14 @@ public class CollectionsBasics {
      * @return A list containing the lengths of the strings in the input list.
      */
     public List<Integer> getLengths(List<String> strings) {
-        return null; // TODO: implement this method
+
+        List<Integer> charCount = new ArrayList<>();
+
+        for (int i = 0; i < strings.size(); i++){
+            charCount.add(strings.get(i).length());
+        }
+
+        return charCount; 
     }
 
     /**
@@ -103,8 +150,15 @@ public class CollectionsBasics {
      * @return A list containing all the indices where the substring is found at.
      */
     public List<Integer> indicesOf(String text, String substring) {
-        // You can assume that the given substring is not empty.
 
-        return null; // TODO: implement this method
+        List<Integer> indices = new ArrayList<>();
+
+        int index = text.indexOf(substring);
+        while (index != -1){
+            indices.add(index);
+            index = text.indexOf(substring, index + 1);
+        }
+
+        return indices;
     }
 }
